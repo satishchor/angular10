@@ -1,19 +1,31 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule, HttpInterceptor, HttpClient } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { environment } from '../environments/environment';
 
 import { LayoutModule } from './layouts/layout.module';
+// import { PagesModule } from './pages/pages.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { initFirebaseBackend } from './authUtils';
 
-export function createTranslateLoader(http : HttpClient): any {
+import { ErrorInterceptor } from './core/helpers/error.interceptor';
+import { JwtInterceptor } from './core/helpers/jwt.interceptor';
+import { FakeBackendInterceptor } from './core/helpers/fake-backend';
+
+if (environment.defaultauth === 'firebase') {
+  initFirebaseBackend(environment.firebaseConfig);
+} else {
+  // tslint:disable-next-line: no-unused-expression
+  FakeBackendInterceptor;
+}
+
+export function createTranslateLoader(http: HttpClient): any {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
 
@@ -23,14 +35,23 @@ export function createTranslateLoader(http : HttpClient): any {
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    LayoutModule,
     HttpClientModule,
-    TranslateModule.forRoot(),
-    BrowserAnimationsModule,
-    BsDropdownModule.forRoot()
+    AppRoutingModule,
+    // PagesModule,
+    LayoutModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient]
+      }
+    }),
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: FakeBackendInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
