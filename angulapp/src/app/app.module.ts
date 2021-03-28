@@ -8,7 +8,6 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { environment } from '../environments/environment';
 
 import { LayoutModule } from './layouts/layout.module';
-// import { PagesModule } from './pages/pages.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -37,7 +36,6 @@ export function createTranslateLoader(http: HttpClient): any {
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    // PagesModule,
     LayoutModule,
     TranslateModule.forRoot({
       loader: {

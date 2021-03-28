@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
     document.body.classList.add('auth-body-bg');
 
     this.loginForm = this.formBuilder.group({
-      email: ['admin@themesdesign.in', [Validators.required, Validators.email]],
+      email: ['admin@the1mesdesign.in', [Validators.required, Validators.email]],
       password: ['123456', [Validators.required]],
     });
 
