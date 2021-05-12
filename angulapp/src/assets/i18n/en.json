@@ -179,7 +179,8 @@
         "FILEUPLOAD": "Form File Upload",
         "REPEATER": "Form Repeater",
         "WIZARD": "Form Wizard",
-        "MASK": "Form Mask"
+        "MASK": "Form Mask",
+        "APP-STORE": "App Store"
       }
     },
     "TABLES": {

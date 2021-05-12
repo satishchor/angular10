@@ -358,6 +358,12 @@ export const MENU: MenuItem[] = [
                 link: '/form/mask',
                 parentId: 49
             },
+            {
+                id: 556,
+                label: 'MENUITEMS.FORMS.LIST.APP-STORE',
+                link: '/mystore',
+                parentId: 49
+            }
         ]
     },
     {

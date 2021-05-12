@@ -12,8 +12,8 @@ import { LayoutComponent } from './layouts/layout/layout.component';
 // ];
 
 const routes: Routes = [
-  { path: '', component: LayoutComponent },
   { path: 'account', loadChildren: () => import('./account/account.module').then(m => m.AccountModule) },
+  { path: '', component: LayoutComponent, loadChildren:()=> import('./pages/pages.module').then(aa=>aa.PagesModule) },
   { path: 'pages', loadChildren: () => import('./extrapages/extrapages.module').then(m => m.ExtrapagesModule) },
 ];
 
