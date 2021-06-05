@@ -329,6 +329,12 @@ export const MENU: MenuItem[] = [
                 parentId: 49
             },
             {
+                id: 501,
+                label: 'MENUITEMS.FORMS.LIST.WHEATHERFORCAST',
+                link: '/form/wheatherforcast',
+                parentId: 49
+            },
+            {
                 id: 52,
                 label: 'MENUITEMS.FORMS.LIST.ADVANCED',
                 link: '/form/advanced',

@@ -17,6 +17,7 @@ import { ErrorInterceptor } from './core/helpers/error.interceptor';
 import { JwtInterceptor } from './core/helpers/jwt.interceptor';
 import { FakeBackendInterceptor } from './core/helpers/fake-backend';
 import { HighlightDirective } from './directives/my-highlight.directive';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 if (environment.defaultauth === 'firebase') {
   initFirebaseBackend(environment.firebaseConfig);
@@ -46,6 +47,7 @@ export function createTranslateLoader(http: HttpClient): any {
         deps: [HttpClient]
       }
     }),
+    NgbModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
