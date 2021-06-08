@@ -18,6 +18,13 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <tr *ngIf="loadComplete">
+                            <td colspan="5">
+                                <div class="spinner-border" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </td>
+                        </tr>
                         <tr *ngFor="let person of persons; index as i">
                             <th scope="row">{{ i + 1}}</th>
                             <td>{{person.PersonType}}</td>
