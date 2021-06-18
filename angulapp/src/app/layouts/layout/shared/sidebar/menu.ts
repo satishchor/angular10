@@ -7,6 +7,18 @@ export const MENU: MenuItem[] = [
         isTitle: true
     },
     {
+        id: 200,
+        label: 'MENUITEMS.ADVENTURE.TEXT',
+        icon: 'ri-store-2-line',
+        subItems: [
+            {
+                id: 600,
+                label: 'MENUITEMS.ADVENTURE.LIST.PERSON',
+                link: '/adventure/person',
+                parentId: 200
+            }]
+    },
+    {
         id: 2,
         label: 'MENUITEMS.DASHBOARDS.TEXT',
         icon: 'ri-dashboard-line',
