@@ -9,12 +9,28 @@ export const MENU: MenuItem[] = [
     {
         id: 200,
         label: 'MENUITEMS.ADVENTURE.TEXT',
-        icon: 'ri-store-2-line',
+        icon: 'dripicons-graduation',
+        badge: {
+            variant: 'danger',
+            text : '3'
+        },
         subItems: [
             {
                 id: 600,
-                label: 'MENUITEMS.ADVENTURE.LIST.PERSON',
-                link: '/adventure/person',
+                label: 'MENUITEMS.ADVENTURE.LIST.LAND',
+                link: '/adventure/land',
+                parentId: 200
+            },
+            {
+                id: 601,
+                label: 'MENUITEMS.ADVENTURE.LIST.WATER',
+                link: '/adventure/water',
+                parentId: 200
+            },
+            {
+                id: 603,
+                label: 'MENUITEMS.ADVENTURE.LIST.AIR',
+                link: '/adventure/air',
                 parentId: 200
             }]
     },

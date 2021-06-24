@@ -72,7 +72,9 @@
     "ADVENTURE": {
       "TEXT": "Adventure",
       "LIST": {
-        "PERSON": "Persons"
+        "LAND": "Land",
+        "WATER": "Water",
+        "AIR": "Air"
       }
     },
     "DASHBOARDS": {
