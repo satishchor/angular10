@@ -9,10 +9,12 @@ import { NgCycleComponent } from "./cycling/ngcycle/ngcycle.component";
 import { ViewChildComponent } from "./cycling/viewchild/viewchild.component";
 import { ViewChild2Component } from "./cycling/viewchild2/viewchild2.component";
 import { TimerComponent } from "./cycling/timer/timer.component";
+import { LocationViewComponent } from "./hiking/locationview/locationview.component";
+import { ChildViewComponent } from "./hiking/childview/childview.component";
 
 @NgModule({
     declarations: [CyclingComponent, HikingComponent, NgCycleComponent, ViewChildComponent, ViewChild2Component,
-        TimerComponent],
+        TimerComponent, LocationViewComponent, ChildViewComponent],
     imports: [
         CommonModule,
         LandRouterModule,

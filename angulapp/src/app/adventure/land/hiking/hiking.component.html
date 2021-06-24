@@ -1,1 +1,37 @@
-<div>Hiking works..</div>
+<div>Hiking Component.</div>
+<div class="row">
+    <div class="col-md-12">
+        <location-view *ngFor="let hero of heroes" [location_name]="hero.name" [image_location]="location_image_path"
+            [country_name]="hero.name" [major]="major" [minor]="minor" (voted)="vote($event)">
+        </location-view>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <h2>Source code version</h2>
+        <button (click)="newMinor()">New minor version</button>
+        <button (click)="newMajor()">New major version</button>
+        <h3>Agreed : {{agreed}}, Disagreed : {{disagreed}}</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <h3>Countdown to Liftoff (via local variable}</h3>
+        <button (click)="timer1.Timerstart()">Start</button>
+        <button (click)="timer1.Timerstop()">Stop</button>
+        <location-child-view #timer1></location-child-view>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <button (click)="start()">Start Again</button>
+        <button (click)="stop()">Stop Again</button>
+        <location-child-view #timer2></location-child-view>
+    </div>
+</div>
+
+<!-- 
+<div class="container">
+        </div>
+    </div>
+</div> -->
