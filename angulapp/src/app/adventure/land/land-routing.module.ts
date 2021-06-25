@@ -5,6 +5,7 @@ import { CyclingComponent } from "./cycling/cycling.component";
 import { HikingComponent } from "./hiking/hiking.component";
 import { NgCycleComponent } from "./cycling/ngcycle/ngcycle.component";
 import { ViewChildComponent } from "./cycling/viewchild/viewchild.component";
+import { RunningComponent } from "./running/running.component";
 
 const routes: Routes = [
     {
@@ -22,6 +23,10 @@ const routes: Routes = [
     {
         path: 'hiking',
         component: HikingComponent
+    },
+    { 
+        path: 'running',
+        component: RunningComponent
     }
 ];
 

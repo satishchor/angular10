@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnDestroy, Output, SimpleChange, ViewChild } from "@angular/core";
+import { Observable } from "rxjs";
 
 @Component({
     selector: 'location-view',
@@ -47,6 +48,7 @@ export class LocationViewComponent {
         this.voted.emit(agreed);
         this.didvote = true;
     }
+
 
 
 }
