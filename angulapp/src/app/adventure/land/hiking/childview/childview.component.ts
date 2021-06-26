@@ -8,7 +8,8 @@ import { interval, fromEvent } from "rxjs";
     template: `<p>{{message}}</p>
     <button (click)="doObserverOperation()">Check Observable</button>
     <p id="el_id">It is been T-{{currSecond}} second from subsribing.</p>
-    <div>Time : {{ time | async }} </div>`,
+    <div>Time : {{ time | async }} </div>
+    <ng-content></ng-content>`,
 })
 export class ChildViewComponent implements OnDestroy {
 

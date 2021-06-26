@@ -12,10 +12,11 @@ import { TimerComponent } from "./cycling/timer/timer.component";
 import { LocationViewComponent } from "./hiking/locationview/locationview.component";
 import { ChildViewComponent } from "./hiking/childview/childview.component";
 import { RunningComponent } from "./running/running.component";
+import { AstronautComponent } from "./running/astronaut/astronaut.component";
 
 @NgModule({
     declarations: [CyclingComponent, HikingComponent, NgCycleComponent, ViewChildComponent, ViewChild2Component,
-        TimerComponent, LocationViewComponent, ChildViewComponent, RunningComponent],
+        TimerComponent, LocationViewComponent, ChildViewComponent, RunningComponent,AstronautComponent],
     imports: [
         CommonModule,
         LandRouterModule,
