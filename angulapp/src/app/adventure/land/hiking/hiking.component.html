@@ -1,4 +1,8 @@
-<div>Hiking Component.</div>
+<div>Hiking Component.{{hero}}</div>
+<div *ngFor="let hero of heroes">
+    <div>{{hero.name}}</div>
+    <div>{{hero.name | shortName:10}}</div>
+</div>
 <div class="row">
     <div class="col-md-12">
         <location-view *ngFor="let hero of heroes" [location_name]="hero.name" [image_location]="location_image_path"
@@ -26,7 +30,9 @@
     <div class="col-md-12">
         <button (click)="start()">Start Again</button>
         <button (click)="stop()">Stop Again</button>
-        <location-child-view #timer2><p>this is my work</p></location-child-view>
+        <location-child-view #timer2>
+            <p>this is my work</p>
+        </location-child-view>
     </div>
 </div>
 

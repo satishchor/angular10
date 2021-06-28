@@ -20,6 +20,7 @@ export class HikingComponent implements OnInit {
     @ViewChild("timer2")
     private timer: ChildViewComponent;
     logs: Array<string> = [];
+    hero: string = "satish the hero";
 
     public heroes: Heroes[] = [
         {
@@ -73,7 +74,7 @@ export class HikingComponent implements OnInit {
             () => console.log("void method")
         );
 
-        
+
     }
 
     private logger(message: any) {
