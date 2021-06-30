@@ -1,9 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
+import { FormsModule,ReactiveFormsModule } from "@angular/forms";
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { SnotifyService, ToastDefaults, SnotifyModule } from 'ng-snotify';
 
 import { environment } from '../environments/environment';
 
@@ -48,11 +50,17 @@ export function createTranslateLoader(http: HttpClient): any {
       }
     }),
     NgbModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: FakeBackendInterceptor, multi: true },
+    SnotifyService,
+    {
+      provide: 'SnotifyToastConfig', useValue: ToastDefaults
+    }
   ],
   bootstrap: [AppComponent]
 })
