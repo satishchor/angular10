@@ -1,0 +1,54 @@
+<p *ngIf="isValidFormSubmitted" class="success">
+    Form submitted successfully.
+</p>
+<div class="row">
+    <div class="col-md-12">
+        <form [formGroup]="userForm" name="userNameForm" (ngSubmit)="onUserFormSubmitted(form, userForm.valid)">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="userName">User Name</label>
+                        <input class="form-control" id="userName" formControlName="userName" />
+                        <div *ngIf="userName.invalid && userForm.dirty" class="error">
+                            User Name required.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="profileName">Select Profile </label>
+                        <select id="profileName" class="form-control" formControlName="profile"
+                            (change)="onProfileChange()">
+                            <option [ngValue]="null" disabled>Choose your profile</option>
+                            <option *ngFor="let prf of allProfiles" [ngValue]="prf">
+                                {{prf.prName}}
+                            </option>
+                        </select>
+                        <div *ngIf="profile.invalid && userForm.dirty" class="error">
+                            Profile Required !!
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="controlTechnology">Select Technology</label>
+                        <select multiple id="controlTechnology" class="form-control" formControlName="technology">
+                            <option *ngFor="let tech of allTechnologies" [ngValue]="tech">
+                                {{tech.techName}}
+                            </option>
+                        </select>
+                        <div *ngIf="technology.invalid && userForm.dirty" class="error">
+                            Technologies required.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <button class="btn btn-success" type="submit">Save User</button>
+                    <button class="btn btn-light" (click)="resetForm(userForm)">Clear</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

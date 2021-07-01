@@ -18,11 +18,12 @@ import { RunningComponent } from "./running/running.component";
 import { AstronautComponent } from "./running/astronaut/astronaut.component";
 import { ShortNamePipe } from "./hiking/shortname.pipe";
 import { HillComponent } from "./trekking/hill.component";
+import { UserComponent } from "./trekking/user.component";
 
 @NgModule({
     declarations: [CyclingComponent, HikingComponent, NgCycleComponent, ViewChildComponent, ViewChild2Component,
         TimerComponent, LocationViewComponent, ChildViewComponent, RunningComponent, AstronautComponent, ShortNamePipe,
-        HillComponent],
+        HillComponent, UserComponent],
     imports: [
         CommonModule,
         LandRouterModule,

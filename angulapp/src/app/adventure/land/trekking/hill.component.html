@@ -11,8 +11,7 @@
                             <div class="form-group">
                                 <label for="validationCustome01">First Name</label>
                                 <input type="text" class="form-control" id="validationCustomer01"
-                                    formControlName="firstName" placeholder="First Name" 
-                                    [ngClass]="{'is-valid': submit && !form.firstName.errors, 
+                                    formControlName="firstName" placeholder="First Name" [ngClass]="{'is-valid': submit && !form.firstName.errors, 
                                     'is-invalid': submit && form.firstName.errors}">
                                 <div *ngIf="submit && form.firstName.errors" class="valid-tooltip">
                                     <span *ngIf="!form.firstName.errors.required">Looks good</span>
@@ -30,11 +29,18 @@
                             </div>
                         </div>
                     </div>
-                    <button class="btn btn-primary" type="submit">Submit Form</button>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <button class="btn btn-primary" type="submit">Submit Form</button>
+                        </div>
+                    </div>
                 </form>
+                <div class="row">
+                    <div class="col-md-12">
+                        <user-app></user-app>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
-
