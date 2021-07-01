@@ -1,0 +1,11 @@
+<h3>Mission Control</h3>
+<button (click)="announceMission()">Announce Mission</button>
+<astronaut-app *ngFor="let astronaut of astronauts" [name]="astronaut"></astronaut-app>
+
+<div>
+    <ul>
+        <li *ngFor="let event of history">
+            {{event}}
+        </li>
+    </ul>
+</div>

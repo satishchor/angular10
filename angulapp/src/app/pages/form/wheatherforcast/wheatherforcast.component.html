@@ -1,0 +1,40 @@
+<div>validation form</div>
+<app-pagetitle title="Form Elements" [breadcrumbItems]="breadCrumbItems"></app-pagetitle>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                This is how it works!!
+            </div>
+            <div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <td>#</td>
+                            <td>PersonType</td>
+                            <td>NameStyle</td>
+                            <td>Title</td>
+                            <td>FirstName</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngIf="loadComplete">
+                            <td colspan="5">
+                                <div class="spinner-border" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr *ngFor="let person of persons; index as i">
+                            <th scope="row">{{ i + 2}}</th>
+                            <td>{{person.PersonType}}</td>
+                            <td>{{person.NameStyle}}</td>
+                            <td>{{person.Title}}</td>
+                            <td>{{person.FirstName}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
