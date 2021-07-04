@@ -1,10 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Technology } from "./technology";
-import { Profile } from "./profile";
+import { Profile, Certificate } from "./profile.model";
 import { User } from "./user";
 
 import { UserService } from "./user.service";
+import { error } from "@angular/compiler/src/util";
 
 @Component({
     selector: 'user-app',
@@ -18,6 +19,16 @@ export class UserComponent implements OnInit {
     allProfiles: Profile[];
     allTechnologies: Technology[];
     userForm: FormGroup;
+    certificates: Array<Certificate> = []
+    dropdownSettings: {};
+
+    dropDownList = [
+        { id: 1, itemName: "India" },
+        { id: 2, itemName: "China" },
+        { id: 3, itemName: "Pakistan" },
+    ];
+
+    selectedList = [];
 
 
     constructor(private formBuilder: FormBuilder,
@@ -34,8 +45,35 @@ export class UserComponent implements OnInit {
 
         this.allProfiles = this.userService.getProfiles();
         this.allTechnologies = this.userService.getTechnologies();
+        // this.setDefaultValues();
+        console.log(Math.pow(2, 7));
 
-        console.log(Math.pow(2,7));
+        // this.certificates.push(new Certificate("04","Microservice"));
+        this.certificates.push({ crID: "01", crName: "microservice" });
+        let topServices = this.certificates.filter(function (value) {
+            return value.crID == "01"
+        })
+
+        topServices.forEach(function (value, index1, array) {
+            console.log(`main element: ${value.crName}`)
+            for (let index = 0; index < array.length; index++) {
+                const element = array[index];
+                console.log(element.crName);
+            }
+        });
+
+        this.dropdownSettings = {
+            singleSelection: false,
+            text: "Select Countries",
+            selectAllText: 'Select All',
+            unSelectAllText: 'UnSelect All',
+            enableSearchFilter: true,
+            classes: "myclass custom-class"
+        };
+
+        this.userService.getPersonList().subscribe(data => {
+            console.log(data), error => { console.log(error) }
+        });
     }
 
     get profile() {
@@ -50,7 +88,7 @@ export class UserComponent implements OnInit {
         return this.userForm.get('technology');
     }
 
-    onUserFormSubmitted(form: any, isvalid: boolean) {
+    onUserFormSubmitted() {
         console.log(JSON.stringify(this.userForm.value) + `is valid ${this.userForm.valid} , is form dirty ${this.userForm.dirty}`);
         this.isValidFormSubmitted = false;
         if (this.userForm.valid) {
@@ -62,7 +100,7 @@ export class UserComponent implements OnInit {
         let newUser: User = this.userForm.value;
 
         this.userService.createUser(newUser);
-
+        console.log(Math.pow(2, 7))
     }
 
     resetForm(form: FormGroup) {

@@ -1,7 +1,17 @@
 import { Injectable } from "@angular/core";
-import { Profile } from "./profile";
+import {
+    HttpClient, HttpInterceptor, HttpErrorResponse,
+    HttpRequest, HttpHeaders, HttpParams, HttpClientModule,
+    HttpHandler, HttpProgressEvent, HttpUploadProgressEvent,
+    HttpResponse
+} from "@angular/common/http";
+import * as all from "@angular/common/http"
+
+import { Profile } from "./profile.model";
 import { Technology } from "./technology";
 import { User } from "./user";
+import { Observable } from "rxjs";
+import { catchError } from "rxjs/operators";
 
 @Injectable(
     {
@@ -9,7 +19,7 @@ import { User } from "./user";
     }
 )
 export class UserService {
-    constructor() {
+    constructor(private clientReq: all.HttpClient) {
 
     }
 
@@ -39,4 +49,11 @@ export class UserService {
             console.log(`Tech ID: {${user.technology[index].techID}, Tech Name: {${user.technology[index].techName}}}`)
         }
     }
+
+    getPersonList(): Observable<HttpResponse<any>> {
+        
+        let tech = new Technology("", "");
+        return this.clientReq.get<any>("https://reqbin.com/echo",{observe: 'response'});
+    }
+
 }

@@ -1,9 +1,21 @@
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="countryControl">Country</label>
+            <angular2-multiselect [data]="dropDownList" [(ngModel)]="selectedList" [settings]="dropdownSettings">
+            </angular2-multiselect>
+
+        </div>
+    </div>
+</div>
+
 <p *ngIf="isValidFormSubmitted" class="success">
     Form submitted successfully.
 </p>
 <div class="row">
     <div class="col-md-12">
-        <form [formGroup]="userForm" name="userNameForm" (ngSubmit)="onUserFormSubmitted(form, userForm.valid)">
+        <form [formGroup]="userForm" name="userNameForm" (ngSubmit)="onUserFormSubmitted()">
             <div class="row">
                 <div class="col-md-3">
                     <div class="form-group">
@@ -20,7 +32,7 @@
                         <select id="profileName" class="form-control" formControlName="profile"
                             (change)="onProfileChange()">
                             <option [ngValue]="null" disabled>Choose your profile</option>
-                            <option *ngFor="let prf of allProfiles" [ngValue]="prf">
+                            <option *ngFor="let prf of (allProfiles | topprofile)" [ngValue]="prf">
                                 {{prf.prName}}
                             </option>
                         </select>
@@ -51,4 +63,8 @@
             </div>
         </form>
     </div>
+
+
 </div>
+
+<script></script>

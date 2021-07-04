@@ -1,4 +1,4 @@
-import { Profile } from "./profile";
+import { Profile } from "./profile.model";
 import { Technology } from "./technology";
 
 export class User {
